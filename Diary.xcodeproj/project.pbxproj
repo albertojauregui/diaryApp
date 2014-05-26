@@ -22,6 +22,7 @@
 		159F5B261933FFED0075D9D4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 159F5B0A1933FFED0075D9D4 /* CoreData.framework */; };
 		159F5B2E1933FFED0075D9D4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 159F5B2C1933FFED0075D9D4 /* InfoPlist.strings */; };
 		159F5B301933FFED0075D9D4 /* DiaryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 159F5B2F1933FFED0075D9D4 /* DiaryTests.m */; };
+		159F5B3B193402060075D9D4 /* AJCoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 159F5B3A193402060075D9D4 /* AJCoreDataStack.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		159F5B2B1933FFED0075D9D4 /* DiaryTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DiaryTests-Info.plist"; sourceTree = "<group>"; };
 		159F5B2D1933FFED0075D9D4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		159F5B2F1933FFED0075D9D4 /* DiaryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DiaryTests.m; sourceTree = "<group>"; };
+		159F5B39193402060075D9D4 /* AJCoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJCoreDataStack.h; sourceTree = "<group>"; };
+		159F5B3A193402060075D9D4 /* AJCoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJCoreDataStack.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +123,8 @@
 				159F5B1B1933FFED0075D9D4 /* Images.xcassets */,
 				159F5B181933FFED0075D9D4 /* Diary.xcdatamodeld */,
 				159F5B0D1933FFED0075D9D4 /* Supporting Files */,
+				159F5B39193402060075D9D4 /* AJCoreDataStack.h */,
+				159F5B3A193402060075D9D4 /* AJCoreDataStack.m */,
 			);
 			path = Diary;
 			sourceTree = "<group>";
@@ -249,6 +254,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				159F5B3B193402060075D9D4 /* AJCoreDataStack.m in Sources */,
 				159F5B1A1933FFED0075D9D4 /* Diary.xcdatamodeld in Sources */,
 				159F5B131933FFED0075D9D4 /* main.m in Sources */,
 				159F5B171933FFED0075D9D4 /* AJAppDelegate.m in Sources */,
