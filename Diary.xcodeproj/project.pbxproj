@@ -23,6 +23,7 @@
 		159F5B2E1933FFED0075D9D4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 159F5B2C1933FFED0075D9D4 /* InfoPlist.strings */; };
 		159F5B301933FFED0075D9D4 /* DiaryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 159F5B2F1933FFED0075D9D4 /* DiaryTests.m */; };
 		159F5B3B193402060075D9D4 /* AJCoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 159F5B3A193402060075D9D4 /* AJCoreDataStack.m */; };
+		159F5B3E193405A80075D9D4 /* AJDiaryEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 159F5B3D193405A80075D9D4 /* AJDiaryEntry.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,8 @@
 		159F5B2F1933FFED0075D9D4 /* DiaryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DiaryTests.m; sourceTree = "<group>"; };
 		159F5B39193402060075D9D4 /* AJCoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJCoreDataStack.h; sourceTree = "<group>"; };
 		159F5B3A193402060075D9D4 /* AJCoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJCoreDataStack.m; sourceTree = "<group>"; };
+		159F5B3C193405A80075D9D4 /* AJDiaryEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJDiaryEntry.h; sourceTree = "<group>"; };
+		159F5B3D193405A80075D9D4 /* AJDiaryEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJDiaryEntry.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +125,8 @@
 				159F5B161933FFED0075D9D4 /* AJAppDelegate.m */,
 				159F5B1B1933FFED0075D9D4 /* Images.xcassets */,
 				159F5B181933FFED0075D9D4 /* Diary.xcdatamodeld */,
+				159F5B3C193405A80075D9D4 /* AJDiaryEntry.h */,
+				159F5B3D193405A80075D9D4 /* AJDiaryEntry.m */,
 				159F5B0D1933FFED0075D9D4 /* Supporting Files */,
 				159F5B39193402060075D9D4 /* AJCoreDataStack.h */,
 				159F5B3A193402060075D9D4 /* AJCoreDataStack.m */,
@@ -258,6 +263,7 @@
 				159F5B1A1933FFED0075D9D4 /* Diary.xcdatamodeld in Sources */,
 				159F5B131933FFED0075D9D4 /* main.m in Sources */,
 				159F5B171933FFED0075D9D4 /* AJAppDelegate.m in Sources */,
+				159F5B3E193405A80075D9D4 /* AJDiaryEntry.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
