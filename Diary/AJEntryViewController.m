@@ -10,9 +10,11 @@
 #import "AJDiaryEntry.h"
 #import "AJCoreDataStack.h"
 
-@interface AJEntryViewController ()
+@interface AJEntryViewController () <UIActionSheetDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 @property (nonatomic, assign) enum AJDiaryEntryMood pickedMood;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
+
+@property (nonatomic, strong) UIImage *pickedImage;
 
 @property (weak, nonatomic) IBOutlet UIButton *badButton;
 @property (weak, nonatomic) IBOutlet UIButton *averageButton;
@@ -57,17 +59,67 @@
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (void)promptForSource {
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Image Source" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Camera", @"Photo Roll", nil];
+    [actionSheet showInView:self.view];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex != actionSheet.cancelButtonIndex) {
+        if (buttonIndex != actionSheet.firstOtherButtonIndex) {
+            [self promptForCamera];
+        }else{
+            [self promptForPhotoRoll];
+        }
+    }
+}
+
+- (void)promptForCamera {
+    UIImagePickerController *controller = [[UIImagePickerController alloc] init];
+    controller.sourceType = UIImagePickerControllerSourceTypeCamera;
+    controller.delegate = self;
+    [self presentViewController:controller animated:YES completion:nil];
+}
+
+- (void)promptForPhotoRoll {
+    UIImagePickerController *controller = [[UIImagePickerController alloc] init];
+    controller.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    controller.delegate = self;
+    [self presentViewController:controller animated:YES completion:nil];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    self.pickedImage = image;
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)setPickedImage:(UIImage *)pickedImage {
+    _pickedImage = pickedImage;
+    if(pickedImage == nil){
+        [self.imageButton setImage:[UIImage imageNamed:@"icn_noimage"] forState:UIControlStateNormal];
+    }else{
+        [self.imageButton setImage:pickedImage forState:UIControlStateNormal];
+    }
+}
+
 - (void)insertDiaryEntry {
     AJCoreDataStack *coreDataStack = [AJCoreDataStack defaultStack];
     AJDiaryEntry *entry = [NSEntityDescription insertNewObjectForEntityForName:@"AJDiaryEntry" inManagedObjectContext:coreDataStack.managedObjectContext];
     entry.body = self.textView.text;
     entry.date = [[NSDate date] timeIntervalSince1970];
+    entry.imageData = UIImageJPEGRepresentation(self.pickedImage, 0.75);
     entry.mood = self.pickedMood;
     [coreDataStack saveContext];
 }
 
 - (void)updateDiaryEntry {
     self.entry.body = self.textView.text;
+    self.entry.imageData = UIImageJPEGRepresentation(self.pickedImage, 0.75);
     self.entry.mood = self.pickedMood;
     AJCoreDataStack *coreDataStack = [AJCoreDataStack defaultStack];
     [coreDataStack saveContext];
@@ -116,6 +168,11 @@
     self.pickedMood = AJDiaryEntryMoodGood;
 }
 - (IBAction)imageButtonWasPressed:(id)sender {
+    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
+        [self promptForSource];
+    }else{
+        [self promptForPhotoRoll];
+    }
 }
 
 @end
