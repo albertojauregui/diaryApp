@@ -7,8 +7,11 @@
 //
 
 #import "AJNewEntryViewController.h"
+#import "AJDiaryEntry.h"
+#import "AJCoreDataStack.h"
 
 @interface AJNewEntryViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *textField;
 
 @end
 
@@ -24,7 +27,16 @@
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (void)insertDiaryEntry {
+    AJCoreDataStack *coreDataStack = [AJCoreDataStack defaultStack];
+    AJDiaryEntry *entry = [NSEntityDescription insertNewObjectForEntityForName:@"AJDiaryEntry" inManagedObjectContext:coreDataStack.managedObjectContext];
+    entry.body = self.textField.text;
+    entry.date = [[NSDate date] timeIntervalSince1970];
+    [coreDataStack saveContext];
+}
+
 - (IBAction)doneWasPressed:(id)sender {
+    [self insertDiaryEntry];
     [self dismissSelf];
 }
 - (IBAction)cancelWasPressed:(id)sender {
