@@ -10,6 +10,7 @@
 		157BC207193438E600F4F1E6 /* AJEntryListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 157BC206193438E600F4F1E6 /* AJEntryListTableViewController.m */; };
 		157BC20A1934503900F4F1E6 /* AJNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 157BC2091934503900F4F1E6 /* AJNavigationController.m */; };
 		157BC20D1934537800F4F1E6 /* AJEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 157BC20C1934537800F4F1E6 /* AJEntryCell.m */; };
+		1597EF96193553E50085C7AA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1597EF95193553E50085C7AA /* QuartzCore.framework */; };
 		159F5B051933FFED0075D9D4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 159F5B041933FFEC0075D9D4 /* Foundation.framework */; };
 		159F5B071933FFED0075D9D4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 159F5B061933FFED0075D9D4 /* CoreGraphics.framework */; };
 		159F5B091933FFED0075D9D4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 159F5B081933FFED0075D9D4 /* UIKit.framework */; };
@@ -48,6 +49,7 @@
 		157BC2091934503900F4F1E6 /* AJNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJNavigationController.m; sourceTree = "<group>"; };
 		157BC20B1934537800F4F1E6 /* AJEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJEntryCell.h; sourceTree = "<group>"; };
 		157BC20C1934537800F4F1E6 /* AJEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJEntryCell.m; sourceTree = "<group>"; };
+		1597EF95193553E50085C7AA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		159F5B011933FFEC0075D9D4 /* Diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		159F5B041933FFEC0075D9D4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		159F5B061933FFED0075D9D4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -80,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1597EF96193553E50085C7AA /* QuartzCore.framework in Frameworks */,
 				159F5B071933FFED0075D9D4 /* CoreGraphics.framework in Frameworks */,
 				159F5B0B1933FFED0075D9D4 /* CoreData.framework in Frameworks */,
 				159F5B091933FFED0075D9D4 /* UIKit.framework in Frameworks */,
@@ -123,6 +126,7 @@
 		159F5B031933FFEC0075D9D4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1597EF95193553E50085C7AA /* QuartzCore.framework */,
 				159F5B041933FFEC0075D9D4 /* Foundation.framework */,
 				159F5B061933FFED0075D9D4 /* CoreGraphics.framework */,
 				159F5B081933FFED0075D9D4 /* UIKit.framework */,

@@ -8,6 +8,7 @@
 
 #import "AJEntryCell.h"
 #import "AJDiaryEntry.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface AJEntryCell()
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
@@ -55,6 +56,8 @@
     } else if (entry.mood == AJDiaryEntryMoodBad){
         self.moodImageView.image = [UIImage imageNamed:@"icn_bad"];
     }
+    
+    self.mainImageView.layer.cornerRadius = CGRectGetWidth(self.mainImageView.frame) / 2.0f;
 }
 
 @end

@@ -47,6 +47,8 @@
     self.dateLabel.text = [dateFormatter stringFromDate:date];
     
     self.textView.inputAccessoryView = self.accesoryView;
+    
+    self.imageButton.layer.cornerRadius = CGRectGetWidth(self.imageButton.frame) / 2.0f;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
