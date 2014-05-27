@@ -8,8 +8,11 @@
 
 #import "AJEntryListTableViewController.h"
 #import "AJCoreDataStack.h"
+#import "AJDiaryEntry.h"
 
-@interface AJEntryListTableViewController ()
+@interface AJEntryListTableViewController () <NSFetchedResultsControllerDelegate>
+
+@property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 
 @end
 
@@ -33,6 +36,8 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    [self.fetchedResultsController performFetch:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,16 +50,15 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return self.fetchedResultsController.sections.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
+    return [sectionInfo numberOfObjects];
 }
 
 - (NSFetchRequest *)entryListFetchRequest {
@@ -65,16 +69,34 @@
     return fetchRequest;
 }
 
-/*
+- (NSFetchedResultsController *)fetchedResultsController {
+    if (_fetchedResultsController != nil) {
+        return _fetchedResultsController;
+    }
+    
+    AJCoreDataStack *coreDataStack = [AJCoreDataStack defaultStack];
+    NSFetchRequest *fetchRequest = [self entryListFetchRequest];
+    
+    _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:coreDataStack.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+    
+    _fetchedResultsController.delegate = self;
+    
+    return _fetchedResultsController;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
-    // Configure the cell...
+    AJDiaryEntry *entry = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    cell.textLabel.text = entry.body;
     
     return cell;
 }
-*/
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    [self.tableView reloadData];
+}
 
 /*
 // Override to support conditional editing of the table view.
