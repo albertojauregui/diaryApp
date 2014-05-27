@@ -9,8 +9,13 @@
 #import "AJEntryViewController.h"
 #import "AJDiaryEntry.h"
 #import "AJCoreDataStack.h"
+#import <CoreLocation/CoreLocation.h>
 
-@interface AJEntryViewController () <UIActionSheetDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface AJEntryViewController () <UIActionSheetDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, CLLocationManagerDelegate>
+
+@property (nonatomic, strong) CLLocationManager *locationManager;
+@property (nonatomic, strong) NSString *location;
+
 @property (nonatomic, assign) enum AJDiaryEntryMood pickedMood;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 
@@ -40,6 +45,7 @@
     } else {
         self.pickedMood = AJDiaryEntryMoodGood;
         date = [NSDate date];
+        [self loadLocation];
     }
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -59,6 +65,25 @@
 
 - (void)dismissSelf {
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)loadLocation {
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    self.locationManager.desiredAccuracy = 1000;
+    
+    [self.locationManager startUpdatingLocation];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    [self.locationManager stopUpdatingLocation];
+    
+    CLLocation *location = [locations firstObject];
+    CLGeocoder *geoCoder = [[CLGeocoder alloc] init];
+    [geoCoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
+        CLPlacemark *placemark = [placemarks firstObject];
+        self.location = placemark.name;
+    }];
 }
 
 - (void)promptForSource {
@@ -115,6 +140,7 @@
     entry.body = self.textView.text;
     entry.date = [[NSDate date] timeIntervalSince1970];
     entry.imageData = UIImageJPEGRepresentation(self.pickedImage, 0.75);
+    entry.location = self.location;
     entry.mood = self.pickedMood;
     [coreDataStack saveContext];
 }
