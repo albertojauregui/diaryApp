@@ -14,4 +14,6 @@
 
 + (CGFloat)heightForEntry:(AJDiaryEntry *)entry;
 
+- (void)configureCellForEntry:(AJDiaryEntry *)entry;
+
 @end
