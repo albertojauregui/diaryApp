@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--Entry List Table View Controller - Root View Controller-->
+        <!--Entry List Table View Controller - Diary Entries-->
         <scene sceneID="D4B-cE-zEM">
             <objects>
                 <tableViewController id="zqR-nJ-1Ks" customClass="AJEntryListTableViewController" sceneMemberID="viewController">
@@ -30,7 +30,7 @@
                             <outlet property="delegate" destination="zqR-nJ-1Ks" id="pDz-2t-h0g"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="INw-YN-3sa">
+                    <navigationItem key="navigationItem" title="Diary Entries" id="INw-YN-3sa">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="zsC-qD-lfL">
                             <connections>
                                 <segue destination="f8w-ld-KQN" kind="modal" id="mNQ-pB-4ss"/>
@@ -86,7 +86,7 @@
         <!--Navigation Controller-->
         <scene sceneID="oJZ-8m-0sF">
             <objects>
-                <navigationController definesPresentationContext="YES" id="zR8-Uy-chn" sceneMemberID="viewController">
+                <navigationController definesPresentationContext="YES" id="zR8-Uy-chn" customClass="AJNavigationController" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2NR-lz-Auc">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -101,7 +101,7 @@
         <!--Navigation Controller-->
         <scene sceneID="UKY-4c-ic6">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="f8w-ld-KQN" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="f8w-ld-KQN" customClass="AJNavigationController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="j9r-E1-6he">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

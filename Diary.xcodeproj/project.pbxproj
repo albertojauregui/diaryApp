@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		157BC207193438E600F4F1E6 /* AJEntryListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 157BC206193438E600F4F1E6 /* AJEntryListTableViewController.m */; };
+		157BC20A1934503900F4F1E6 /* AJNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 157BC2091934503900F4F1E6 /* AJNavigationController.m */; };
 		159F5B051933FFED0075D9D4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 159F5B041933FFEC0075D9D4 /* Foundation.framework */; };
 		159F5B071933FFED0075D9D4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 159F5B061933FFED0075D9D4 /* CoreGraphics.framework */; };
 		159F5B091933FFED0075D9D4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 159F5B081933FFED0075D9D4 /* UIKit.framework */; };
@@ -42,6 +43,8 @@
 /* Begin PBXFileReference section */
 		157BC205193438E600F4F1E6 /* AJEntryListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJEntryListTableViewController.h; sourceTree = "<group>"; };
 		157BC206193438E600F4F1E6 /* AJEntryListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJEntryListTableViewController.m; sourceTree = "<group>"; };
+		157BC2081934503900F4F1E6 /* AJNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJNavigationController.h; sourceTree = "<group>"; };
+		157BC2091934503900F4F1E6 /* AJNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJNavigationController.m; sourceTree = "<group>"; };
 		159F5B011933FFEC0075D9D4 /* Diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		159F5B041933FFEC0075D9D4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		159F5B061933FFED0075D9D4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -143,6 +146,8 @@
 				159F5B4219340B260075D9D4 /* AJEntryViewController.m */,
 				157BC205193438E600F4F1E6 /* AJEntryListTableViewController.h */,
 				157BC206193438E600F4F1E6 /* AJEntryListTableViewController.m */,
+				157BC2081934503900F4F1E6 /* AJNavigationController.h */,
+				157BC2091934503900F4F1E6 /* AJNavigationController.m */,
 			);
 			path = Diary;
 			sourceTree = "<group>";
@@ -275,6 +280,7 @@
 			files = (
 				159F5B3B193402060075D9D4 /* AJCoreDataStack.m in Sources */,
 				157BC207193438E600F4F1E6 /* AJEntryListTableViewController.m in Sources */,
+				157BC20A1934503900F4F1E6 /* AJNavigationController.m in Sources */,
 				159F5B1A1933FFED0075D9D4 /* Diary.xcdatamodeld in Sources */,
 				159F5B131933FFED0075D9D4 /* main.m in Sources */,
 				159F5B4319340B260075D9D4 /* AJEntryViewController.m in Sources */,
