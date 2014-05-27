@@ -12,7 +12,13 @@
 
 @interface AJEntryViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *textField;
+@property (nonatomic, assign) enum AJDiaryEntryMood pickedMood;
 
+@property (weak, nonatomic) IBOutlet UIButton *badButton;
+@property (weak, nonatomic) IBOutlet UIButton *averageButton;
+@property (weak, nonatomic) IBOutlet UIButton *goodButton;
+@property (strong, nonatomic) IBOutlet UIView *accesoryView;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @end
 
 @implementation AJEntryViewController
@@ -21,9 +27,23 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    NSDate *date;
+    
     if(self.entry != nil){
         self.textField.text = self.entry.body;
+        self.pickedMood = self.entry.mood;
+        date = [NSDate dateWithTimeIntervalSince1970:self.entry.date];
+    } else {
+        self.pickedMood = AJDiaryEntryMoodGood;
+        date = [NSDate date];
     }
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"EEEE MMMM d, yyyy"];
+    self.dateLabel.text = [dateFormatter stringFromDate:date];
+    
+    self.textField.inputAccessoryView = self.accesoryView;
 }
 
 - (void)dismissSelf {
@@ -35,13 +55,35 @@
     AJDiaryEntry *entry = [NSEntityDescription insertNewObjectForEntityForName:@"AJDiaryEntry" inManagedObjectContext:coreDataStack.managedObjectContext];
     entry.body = self.textField.text;
     entry.date = [[NSDate date] timeIntervalSince1970];
+    entry.mood = self.pickedMood;
     [coreDataStack saveContext];
 }
 
 - (void)updateDiaryEntry {
     self.entry.body = self.textField.text;
+    self.entry.mood = self.pickedMood;
     AJCoreDataStack *coreDataStack = [AJCoreDataStack defaultStack];
     [coreDataStack saveContext];
+}
+
+- (void)setPickedMood:(enum AJDiaryEntryMood)pickedMood {
+    _pickedMood = pickedMood;
+    
+    self.badButton.alpha = 0.5f;
+    self.averageButton.alpha = 0.5f;
+    self.goodButton.alpha = 0.5f;
+    
+    switch (pickedMood) {
+        case AJDiaryEntryMoodGood:
+            self.goodButton.alpha = 1.0f;
+            break;
+        case AJDiaryEntryMoodAverage:
+            self.averageButton.alpha = 1.0f;
+            break;
+        case AJDiaryEntryMoodBad:
+            self.badButton.alpha = 1.0f;
+            break;
+    }
 }
 
 - (IBAction)doneWasPressed:(id)sender {
@@ -54,6 +96,17 @@
 }
 - (IBAction)cancelWasPressed:(id)sender {
     [self dismissSelf];
+}
+- (IBAction)badWasPressed:(id)sender {
+    self.pickedMood = AJDiaryEntryMoodBad;
+}
+
+- (IBAction)averageWasPressed:(id)sender {
+    self.pickedMood = AJDiaryEntryMoodAverage;
+}
+
+- (IBAction)goodWasPressed:(id)sender {
+    self.pickedMood = AJDiaryEntryMoodGood;
 }
 
 @end
