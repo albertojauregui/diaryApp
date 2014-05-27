@@ -20,6 +20,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="f8w-ld-KQN" kind="modal" identifier="edit" id="qco-0Q-URq"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -39,10 +42,10 @@
             </objects>
             <point key="canvasLocation" x="647" y="83"/>
         </scene>
-        <!--New Entry View Controller-->
+        <!--Entry View Controller-->
         <scene sceneID="xVG-Ro-Sno">
             <objects>
-                <viewController id="5OD-sr-5ko" customClass="AJNewEntryViewController" sceneMemberID="viewController">
+                <viewController id="5OD-sr-5ko" customClass="AJEntryViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rFH-gO-eGf"/>
                         <viewControllerLayoutGuide type="bottom" id="31J-lv-UYw"/>
@@ -119,4 +122,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="qco-0Q-URq"/>
+    </inferredMetricsTieBreakers>
 </document>

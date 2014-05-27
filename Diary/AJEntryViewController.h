@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AJNewEntryViewController : UIViewController
+@class AJDiaryEntry;
+
+@interface AJEntryViewController : UIViewController
+
+@property (nonatomic, strong) AJDiaryEntry *entry;
 
 @end

@@ -6,21 +6,24 @@
 //  Copyright (c) 2014 Alberto Jauregui. All rights reserved.
 //
 
-#import "AJNewEntryViewController.h"
+#import "AJEntryViewController.h"
 #import "AJDiaryEntry.h"
 #import "AJCoreDataStack.h"
 
-@interface AJNewEntryViewController ()
+@interface AJEntryViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 
 @end
 
-@implementation AJNewEntryViewController
+@implementation AJEntryViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    if(self.entry != nil){
+        self.textField.text = self.entry.body;
+    }
 }
 
 - (void)dismissSelf {
@@ -35,8 +38,18 @@
     [coreDataStack saveContext];
 }
 
+- (void)updateDiaryEntry {
+    self.entry.body = self.textField.text;
+    AJCoreDataStack *coreDataStack = [AJCoreDataStack defaultStack];
+    [coreDataStack saveContext];
+}
+
 - (IBAction)doneWasPressed:(id)sender {
-    [self insertDiaryEntry];
+    if (self.entry != nil) {
+        [self updateDiaryEntry];
+    }else{
+        [self insertDiaryEntry];
+    }
     [self dismissSelf];
 }
 - (IBAction)cancelWasPressed:(id)sender {

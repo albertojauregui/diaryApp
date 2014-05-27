@@ -26,7 +26,7 @@
 		159F5B3B193402060075D9D4 /* AJCoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 159F5B3A193402060075D9D4 /* AJCoreDataStack.m */; };
 		159F5B3E193405A80075D9D4 /* AJDiaryEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 159F5B3D193405A80075D9D4 /* AJDiaryEntry.m */; };
 		159F5B40193409BB0075D9D4 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 159F5B3F193409BB0075D9D4 /* MainStoryboard.storyboard */; };
-		159F5B4319340B260075D9D4 /* AJNewEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 159F5B4219340B260075D9D4 /* AJNewEntryViewController.m */; };
+		159F5B4319340B260075D9D4 /* AJEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 159F5B4219340B260075D9D4 /* AJEntryViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,8 +65,8 @@
 		159F5B3C193405A80075D9D4 /* AJDiaryEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJDiaryEntry.h; sourceTree = "<group>"; };
 		159F5B3D193405A80075D9D4 /* AJDiaryEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJDiaryEntry.m; sourceTree = "<group>"; };
 		159F5B3F193409BB0075D9D4 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
-		159F5B4119340B260075D9D4 /* AJNewEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJNewEntryViewController.h; sourceTree = "<group>"; };
-		159F5B4219340B260075D9D4 /* AJNewEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJNewEntryViewController.m; sourceTree = "<group>"; };
+		159F5B4119340B260075D9D4 /* AJEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJEntryViewController.h; sourceTree = "<group>"; };
+		159F5B4219340B260075D9D4 /* AJEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJEntryViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,8 +139,8 @@
 				159F5B39193402060075D9D4 /* AJCoreDataStack.h */,
 				159F5B3A193402060075D9D4 /* AJCoreDataStack.m */,
 				159F5B3F193409BB0075D9D4 /* MainStoryboard.storyboard */,
-				159F5B4119340B260075D9D4 /* AJNewEntryViewController.h */,
-				159F5B4219340B260075D9D4 /* AJNewEntryViewController.m */,
+				159F5B4119340B260075D9D4 /* AJEntryViewController.h */,
+				159F5B4219340B260075D9D4 /* AJEntryViewController.m */,
 				157BC205193438E600F4F1E6 /* AJEntryListTableViewController.h */,
 				157BC206193438E600F4F1E6 /* AJEntryListTableViewController.m */,
 			);
@@ -277,7 +277,7 @@
 				157BC207193438E600F4F1E6 /* AJEntryListTableViewController.m in Sources */,
 				159F5B1A1933FFED0075D9D4 /* Diary.xcdatamodeld in Sources */,
 				159F5B131933FFED0075D9D4 /* main.m in Sources */,
-				159F5B4319340B260075D9D4 /* AJNewEntryViewController.m in Sources */,
+				159F5B4319340B260075D9D4 /* AJEntryViewController.m in Sources */,
 				159F5B171933FFED0075D9D4 /* AJAppDelegate.m in Sources */,
 				159F5B3E193405A80075D9D4 /* AJDiaryEntry.m in Sources */,
 			);
