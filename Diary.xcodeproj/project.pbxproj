@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		157BC207193438E600F4F1E6 /* AJEntryListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 157BC206193438E600F4F1E6 /* AJEntryListTableViewController.m */; };
 		159F5B051933FFED0075D9D4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 159F5B041933FFEC0075D9D4 /* Foundation.framework */; };
 		159F5B071933FFED0075D9D4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 159F5B061933FFED0075D9D4 /* CoreGraphics.framework */; };
 		159F5B091933FFED0075D9D4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 159F5B081933FFED0075D9D4 /* UIKit.framework */; };
@@ -39,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		157BC205193438E600F4F1E6 /* AJEntryListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJEntryListTableViewController.h; sourceTree = "<group>"; };
+		157BC206193438E600F4F1E6 /* AJEntryListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJEntryListTableViewController.m; sourceTree = "<group>"; };
 		159F5B011933FFEC0075D9D4 /* Diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		159F5B041933FFEC0075D9D4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		159F5B061933FFED0075D9D4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -138,6 +141,8 @@
 				159F5B3F193409BB0075D9D4 /* MainStoryboard.storyboard */,
 				159F5B4119340B260075D9D4 /* AJNewEntryViewController.h */,
 				159F5B4219340B260075D9D4 /* AJNewEntryViewController.m */,
+				157BC205193438E600F4F1E6 /* AJEntryListTableViewController.h */,
+				157BC206193438E600F4F1E6 /* AJEntryListTableViewController.m */,
 			);
 			path = Diary;
 			sourceTree = "<group>";
@@ -269,6 +274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				159F5B3B193402060075D9D4 /* AJCoreDataStack.m in Sources */,
+				157BC207193438E600F4F1E6 /* AJEntryListTableViewController.m in Sources */,
 				159F5B1A1933FFED0075D9D4 /* Diary.xcdatamodeld in Sources */,
 				159F5B131933FFED0075D9D4 /* main.m in Sources */,
 				159F5B4319340B260075D9D4 /* AJNewEntryViewController.m in Sources */,
@@ -470,6 +476,7 @@
 				159F5B351933FFED0075D9D4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		159F5B361933FFED0075D9D4 /* Build configuration list for PBXNativeTarget "DiaryTests" */ = {
 			isa = XCConfigurationList;
@@ -478,6 +485,7 @@
 				159F5B381933FFED0075D9D4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
