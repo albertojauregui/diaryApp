@@ -10,6 +10,7 @@
 #import "AJCoreDataStack.h"
 #import "AJDiaryEntry.h"
 #import "AJEntryViewController.h"
+#import "AJEntryCell.h"
 
 @interface AJEntryListTableViewController () <NSFetchedResultsControllerDelegate>
 
@@ -115,6 +116,11 @@
     AJCoreDataStack *coreDataStack = [AJCoreDataStack defaultStack];
     [[coreDataStack managedObjectContext] deleteObject:entry];
     [coreDataStack saveContext];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    AJDiaryEntry *entry = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    return [AJEntryCell heightForEntry:entry];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
