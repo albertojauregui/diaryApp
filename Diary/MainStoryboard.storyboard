@@ -86,18 +86,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="g2i-6Z-KYh">
-                                <rect key="frame" x="20" y="99" width="280" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Th6-XX-vwg">
-                                <rect key="frame" x="20" y="70" width="182" height="21"/>
+                                <rect key="frame" x="90" y="70" width="210" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="q15-mJ-J7e">
+                                <rect key="frame" x="90" y="99" width="210" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="lkt-eS-FtW">
+                                <rect key="frame" x="24" y="81" width="47" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="icn_noimage">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="imageButtonWasPressed:" destination="5OD-sr-5ko" eventType="touchUpInside" id="o0M-0g-ocs"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -119,7 +130,8 @@
                         <outlet property="badButton" destination="j4W-cB-3qQ" id="TzX-Tt-mF7"/>
                         <outlet property="dateLabel" destination="Th6-XX-vwg" id="Jg3-jQ-AHz"/>
                         <outlet property="goodButton" destination="TE4-tI-1Pv" id="5X9-DV-aZ7"/>
-                        <outlet property="textField" destination="g2i-6Z-KYh" id="0GN-sv-m8t"/>
+                        <outlet property="imageButton" destination="lkt-eS-FtW" id="uUn-8F-7bh"/>
+                        <outlet property="textView" destination="q15-mJ-J7e" id="1yd-JZ-exo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uj7-C5-PE1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -209,6 +221,7 @@
     <resources>
         <image name="icn_average_lrg" width="15" height="15"/>
         <image name="icn_good_lrg" width="15" height="15"/>
+        <image name="icn_noimage" width="47" height="47"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

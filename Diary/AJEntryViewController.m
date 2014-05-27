@@ -11,14 +11,15 @@
 #import "AJCoreDataStack.h"
 
 @interface AJEntryViewController ()
-@property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (nonatomic, assign) enum AJDiaryEntryMood pickedMood;
+@property (weak, nonatomic) IBOutlet UITextView *textView;
 
 @property (weak, nonatomic) IBOutlet UIButton *badButton;
 @property (weak, nonatomic) IBOutlet UIButton *averageButton;
 @property (weak, nonatomic) IBOutlet UIButton *goodButton;
 @property (strong, nonatomic) IBOutlet UIView *accesoryView;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UIButton *imageButton;
 @end
 
 @implementation AJEntryViewController
@@ -31,7 +32,7 @@
     NSDate *date;
     
     if(self.entry != nil){
-        self.textField.text = self.entry.body;
+        self.textView.text = self.entry.body;
         self.pickedMood = self.entry.mood;
         date = [NSDate dateWithTimeIntervalSince1970:self.entry.date];
     } else {
@@ -43,7 +44,13 @@
     [dateFormatter setDateFormat:@"EEEE MMMM d, yyyy"];
     self.dateLabel.text = [dateFormatter stringFromDate:date];
     
-    self.textField.inputAccessoryView = self.accesoryView;
+    self.textView.inputAccessoryView = self.accesoryView;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self.textView becomeFirstResponder];
 }
 
 - (void)dismissSelf {
@@ -53,14 +60,14 @@
 - (void)insertDiaryEntry {
     AJCoreDataStack *coreDataStack = [AJCoreDataStack defaultStack];
     AJDiaryEntry *entry = [NSEntityDescription insertNewObjectForEntityForName:@"AJDiaryEntry" inManagedObjectContext:coreDataStack.managedObjectContext];
-    entry.body = self.textField.text;
+    entry.body = self.textView.text;
     entry.date = [[NSDate date] timeIntervalSince1970];
     entry.mood = self.pickedMood;
     [coreDataStack saveContext];
 }
 
 - (void)updateDiaryEntry {
-    self.entry.body = self.textField.text;
+    self.entry.body = self.textView.text;
     self.entry.mood = self.pickedMood;
     AJCoreDataStack *coreDataStack = [AJCoreDataStack defaultStack];
     [coreDataStack saveContext];
@@ -107,6 +114,8 @@
 
 - (IBAction)goodWasPressed:(id)sender {
     self.pickedMood = AJDiaryEntryMoodGood;
+}
+- (IBAction)imageButtonWasPressed:(id)sender {
 }
 
 @end
