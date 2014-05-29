@@ -11,13 +11,14 @@
 #import "AJCoreDataStack.h"
 #import <CoreLocation/CoreLocation.h>
 
-@interface AJEntryViewController () <UIActionSheetDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, CLLocationManagerDelegate>
+@interface AJEntryViewController () <UIActionSheetDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, CLLocationManagerDelegate, UITextViewDelegate>
 
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, strong) NSString *location;
 
 @property (nonatomic, assign) enum AJDiaryEntryMood pickedMood;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
+@property (weak, nonatomic) IBOutlet UILabel *charactersLabel;
 
 @property (nonatomic, strong) UIImage *pickedImage;
 
@@ -55,12 +56,36 @@
     self.textView.inputAccessoryView = self.accesoryView;
     
     self.imageButton.layer.cornerRadius = CGRectGetWidth(self.imageButton.frame) / 2.0f;
+    
+    self.title = [dateFormatter stringFromDate:date];
+    
+    NSDictionary *textAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                                    [UIColor whiteColor],NSForegroundColorAttributeName,
+                                    [UIFont boldSystemFontOfSize:13.0],NSFontAttributeName,nil];
+    self.navigationController.navigationBar.titleTextAttributes = textAttributes;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
     [self.textView becomeFirstResponder];
+}
+
+- (void)textViewDidChange:(UITextView *)textView {
+    NSString *substring = [NSString stringWithString:self.textView.text];
+    if (substring.length > 0) {
+        self.charactersLabel.text = [NSString stringWithFormat:@"%lu/140", (unsigned long)substring.length];
+    }
+
+    if (substring.length >=120){
+        self.charactersLabel.textColor = [UIColor colorWithRed:159.0f/255.0f green:0.0f/255.0f blue:2.0f/255.0f alpha:1.0f];
+    }else{
+        self.charactersLabel.textColor = [UIColor lightGrayColor];
+    }
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    return textView.text.length + (text.length - range.length) <= 140;
 }
 
 - (void)dismissSelf {
